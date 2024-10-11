@@ -21,9 +21,11 @@ $(NAME): $(OBJ)
 	make all -C libft
 	$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
 
-bonus: $(OBJ_BONUS)
-	make all -C mlx_linux
+libft/libft.a:
 	make all -C libft
+
+bonus: libft/libft.a $(OBJ_BONUS)
+	make all -C mlx_linux
 	$(CC) $(OBJ_BONUS) $(LDFLAGS) -o $(NAME)
 
 all: $(NAME)
