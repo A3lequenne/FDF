@@ -17,6 +17,8 @@ OBJ_BONUS = $(SRCS_BONUS:.c=.o)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
+	make all -C mlx_linux
+	make all -C libft
 	$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
 
 bonus: $(OBJ_BONUS)
@@ -29,7 +31,7 @@ all: $(NAME)
 fclean: clean
 	$(RM) $(NAME)
 	make clean -C mlx_linux
-	make clean -C libft
+	make fclean -C libft
 
 clean:
 	$(RM) $(filter-out libft/libft.a, $(OBJ) $(OBJ_BONUS))

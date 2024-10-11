@@ -90,6 +90,10 @@ The bonus version of `FdF` includes additional features that enhance user intera
 - **Background Drawing**: The program can now redraw the background before rendering the terrain, which helps maintain a clean visual state during transformations and movements.
 - **Enhanced User Controls**: The bonus version introduces more user-friendly commands, such as toggling between different projections and finer control over depth and zoom, making the experience more interactive.
 
+## Possible Improvements
+
+- **Better shortcuts**: I could add the possibility to close the program by clicking on the cross (atm "escape" needed)
+
 ## Conclusion
 
 `FdF` is a project designed to help understand fundamental computer graphics concepts such as 3D projection, line drawing, and user interaction within a graphics window. It showcases how to convert raw data into an interactive visual representation and is an excellent way to learn low-level graphics programming in C.

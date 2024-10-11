@@ -26,31 +26,23 @@ void	put_pixel(t_fdf *map, int p_x, int p_y, int color)
 	map->data.img[++i] = color >> 16;
 }
 
-int	get_fade_lvl(int hgt)
+int get_fade_lvl(int hgt)
 {
-	if (hgt > 100)
-		return (0xFFDF8D);
-	if (hgt > 75)
-		return (0xFFDE7A);
-	if (hgt > 50)
-		return (0xFFC568);
-	if (hgt > 25)
-		return (0xFD996B);
-	if (hgt > 15)
-		return (0xF7856C);
-	if (hgt > 10)
-		return (0xF06E6C);
-	if (hgt > 5)
-		return (0xD9576B);
-	if (hgt > 0)
-		return (0xA44369);
-	if (hgt > -10)
-		return (0x833F68);
-	if (hgt > -20)
-		return (0x833F68);
-	if (hgt > -50)
-		return (0x5E3C65);
-	return (0x3F3A63);
+    int blue = 0x0000FF;
+    int green = 0x00FF00;
+    float ratio;
+
+    if (hgt >= 100)
+        return green;
+    if (hgt <= -50)
+        return blue;
+
+    ratio = (float)(hgt + 50) / 150.0; // Normalize height between -50 and 100
+    int red = (int)((1 - ratio) * ((blue >> 16) & 0xFF) + ratio * ((green >> 16) & 0xFF));
+    int grn = (int)((1 - ratio) * ((blue >> 8) & 0xFF) + ratio * ((green >> 8) & 0xFF));
+    int blu = (int)((1 - ratio) * (blue & 0xFF) + ratio * (green & 0xFF));
+
+    return (red << 16) | (grn << 8) | blu;
 }
 
 void	draw_line(float x0, float y0, t_fdf *map)
