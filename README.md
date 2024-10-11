@@ -40,7 +40,7 @@ Example:
 This command will open a window and display the isometric view of the map defined in `maps/42.fdf`.
 
 Example: 
-![Example with 42 map](example_fdf.png)
+![Example with 42 map](./assets/example_fdf.png)
 
 ### User Controls
 
